@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.dao.RoutineDao">
+    <select id="queryRoutine" resultType="com.example.demo.entity.Routine">
+        SELECT * from routine
+    </select>
+    <select id="queryRoutineByTitle" resultType="com.example.demo.entity.Routine">
+        SELECT * FROM routine
+        WHERE routine_title LIKE CONCAT('%',#{routineTitle},'%')
+    </select>
+    <select id="queryRoutineByContent" resultType="com.example.demo.entity.Routine">
+        SELECT * FROM routine
+        WHERE routine_content LIKE CONCAT('%',#{routineContent},'%')
+    </select>
+    <select id="queryDId" resultType="java.lang.Integer">
+        SELECT D_id FROM routine
+    </select>
+    <insert id="insertRoutine" useGeneratedKeys="true" keyProperty="routineId"
+            keyColumn="routine_id" parameterType="com.example.demo.entity.Routine">
+        INSERT INTO routine(D_id, routine_title, routine_content, routine_time)
+        VALUES (#{DId},#{routineTitle},#{routineContent},#{routineTime})
+    </insert>
+    <update id="updateRoutine" parameterType="com.example.demo.entity.Routine">
+        UPDATE routine
+        SET routine_content=#{routineContent},routine_title=#{routineTitle},
+            D_id=#{DId},routine_time=#{routineTime}
+        WHERE routine_id=#{routineId}
+    </update>
+    <delete id="deleteRoutine">
+        DELETE FROM routine
+        WHERE routine_id=#{routineId}
+    </delete>
+</mapper>

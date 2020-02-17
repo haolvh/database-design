@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>信息体育部</title>
+    <link rel="stylesheet" type="text/css" href="./css/base.css" />
+    <link rel="stylesheet" type="text/css" href="./css/index.css" />
+	<script src="js/jquery-1.9.1.js" type="text/javascript" charset="UTF-8"></script>
+	<script src="js/all.js" type="text/javascript" charset="UTF-8"></script>
+	<script src="js/member.js" type="text/javascript" charset="UTF-8"></script>
+	<script src="js/team.js" type="text/javascript" charset="UTF-8"></script>
+</head>
+<body background="img/background.jpg" onload="Tteam()">
+    <div class="box">
+	<!--导航栏-->
+        <header class="header">
+            <div class="header__wrap">
+                <div class="header__logo">信息体育部</div>
+                <nav class="header__nav">
+                    <img src=""/>
+                    <a href="index.html" class="header__nav-item header__nav-item_status_active" onclick="brief()">简介</a>
+                    <a href="member.html" class="header__nav-item" onclick="member()">成员</a>
+                    <a href="team.html" class="header__nav-item">球队</a>
+                    <a href="tuanjian.html" class="header__nav-item">团建</a>
+                    <a href="activity.html" class="header__nav-item" onclick="activities()">活动</a>
+                    <a href="#" class="header__nav-item header__nav-item_custom_button" onclick="share(this)">加入我们</a>
+                </nav>
+            </div>
+        </header>
+	<div class="teamleft">
+		<table id="teamList" >
+			<tr height="40px">
+				<td width="100px" id="name">球队名</td>
+				<td width="100px" id="peopletask">介绍</td>
+				<td width="100px" id="changes"></td>
+			</tr>
+		</table>
+		<input type="button" name="" id="showTeamInsert" value="添加新球队" onclick="showTeamInsert()" style="background-image: url(img/frame.jpg);width: 120px;height: 40px;" />
+	</div>
+	
+	
+		<table id="teamer" class="teamer">
+			<tr height="70px">
+				<td width="250px" id="name"></td>
+				<td width="250px" id="name">姓名</td>
+				<td width="250px" id="peopletask">职务</td>
+				<td width="250px" id="birthday">生日</td>
+				<td width="250px" id="birthplace">来自</td>
+				<td width="250px" id="introduce">介绍</td>
+				<td width="250px" id="qq">qq</td>
+			</tr>
+		</table>
+	
+		<!--添加-->
+		<div id="teamInsertdiv" class="teamright" style="display: none;">
+			<form action="http://localhost:8080/api/team/insertBallTeam" method="post" id="InsertTeam">
+				
+				<span style="padding-right: 4em;">球队名</span><input type="text" name="name" id="teamname_is" value="" /><br />
+				<span style="padding-right: 3em;">球队介绍</span><input type="text" name="name" id="teamIntroduce_is" value="" /><br />
+				<span style="padding-right: 4em;">负责人</span><input type="text" name="" id="managerName_is" value="" /><br>
+				<form action="" method="post" id="img">
+					<span style="padding-right: 5em;">头像</span><input type="file" name="" id="img_is" value="修改头像" /><br>
+				</form>
+				<span style="padding-right: 2em;">负责人生日</span><input type="text" name="birthday" id="managerBirthday_is" value="" /><br />
+				<span style="padding-right: 2em;">负责人来自</span><input type="text" name="birthplace" id="managerBirthplace_is" value="" /><br />
+				<span style="padding-right: 2em;">负责人介绍</span><input type="text" name="introduce" id="managerIntroduce_is" value="" /><br />
+				<span style="padding-right: 2.5em;">负责人QQ</span><input type="text" name="QQ" id="QQ_is" value="" /><br />	
+			
+				<input type="button" name="" id="" value="确认添加" style="width:120px" onclick="teamInsert()"/>
+			</form>
+		</div>		
+		<br>
+		<br>
+		<!--修改-->
+		<div id="teamUpdatediv" class="teamright" style="display: none;">
+			<form action="http://localhost:8080/api/team/updateBallTeam" method="post" id="updateTeam" >
+				<input type="text" name="" id="id_up" value="" style="display: none;"/>
+				<input type="text" name="name" id="teamId" value="" style="display: none;"/>
+				<span style="padding-right: 4em;">球队名</span>&nbsp;<input type="text" name="name" id="teamname_up" value="" /><br />
+				<span style="padding-right: 3em;">球队介绍</span>&nbsp;<input type="text" name="name" id="teamIntroduce_up" value="" /><br />
+				<span style="padding-right: 4em;">负责人</span>&nbsp;<input type="text" name="" id="managerName_up" value="" /><br>
+				<span>头像</span>&nbsp;<img src="" alt="没头像" width="5%" style="margin-left:5em;" id="img_h"><br>
+				<form action="" method="post" id="img">
+					<span style="padding-right: 3em;">更换头像</span><input type="file" name="" id="img_up" value="修改头像" /><br>
+				</form>
+				<span style="padding-right: 2em;">负责人生日</span><input type="text" name="birthday" id="managerBirthday_up" value="" /><br />
+				<span style="padding-right: 2em;">负责人来自</span><input type="text" name="birthplace" id="managerBirthplace_up" value="" /><br />
+				<span style="padding-right: 2em;">负责人介绍</span><input type="text" name="introduce" id="managerIntroduce_up" value="" /><br />
+				<span style="padding-right: 2.5em;">负责人QQ</span><input type="text" name="QQ" id="QQ_up" value="" /><br />	
+				<br />
+				<input type="button" name="" id="" value="确认修改" style="width:120px" onclick="teamAllUpdate()"/>
+			</form>
+		</div>	
+	<!--加入我们：二维码-->
+		<div id="light_qq" class="white_content">
+		    <img src="img/qq.PNG" width="420px" height="300px" />  
+		</div>	
+			
+	<!--页脚-->
+		<div class="footer">
+			<p>体育、生活，就在信息体育部</p>
+			<p>&nbsp;<span>版权所有</span>&nbsp;&nbsp;<span>produced by xinxitiyubu</span></p>
+		</div>
+		
+	<!--二维码背景-->
+		<div id="fade" class="black_overlay" onclick="unshare()">
+	</div>
+</body>
+</html>

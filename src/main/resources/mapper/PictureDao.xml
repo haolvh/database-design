@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.dao.PictureDao">
+    <select id="queryPictures" resultType="com.example.demo.entity.Picture">
+        SELECT * FROM picture
+    </select>
+    <select id="queryPictureByDId" resultType="com.example.demo.entity.Picture">
+        SELECT * FROM picture
+        WHERE D_id=#{DId}
+    </select>
+    <select id="queryPictureByPeopleId" resultType="com.example.demo.entity.Picture">
+        SELECT * FROM picture
+        WHERE people_id=#{peopleId}
+    </select>
+    <select id="queryPictureById" resultType="com.example.demo.entity.Picture">
+        SELECT * FROM picture
+        WHERE picture_id=#{pictureId}
+    </select>
+    <select id="queryDId" resultType="java.lang.Integer">
+        SELECT D_id FROM picture
+    </select>
+    <select id="queryPeopleId" resultType="java.lang.Integer">
+        SELECT people_id FROM picture
+    </select>
+    <select id="queryPictureByTeamId" resultType="java.lang.String">
+        SELECT picture_url FROM picture
+        WHERE people_id=#{peopleId}
+    </select>
+    <select id="queryPicturesByPeopleId" resultType="com.example.demo.entity.Picture">
+        SELECT * FROM picture
+        WHERE people_id=#{peopleId}
+    </select>
+    <insert id="insertPicture" useGeneratedKeys="true" keyProperty="pictureId"
+            keyColumn="picture_id" parameterType="com.example.demo.entity.Picture">
+        INSERT INTO picture(D_id, people_id, picture_url, picture_position)
+        VALUES (#{DId},#{peopleId},#{pictureUrl},#{picturePosition})
+    </insert>
+    <update id="updatePicture" parameterType="com.example.demo.entity.Picture">
+        UPDATE picture
+        SET D_id=#{DId},people_id=#{peopleId},picture_url=#{pictureUrl},picture_position=#{picturePosition}
+        WHERE picture_id=#{pictureId}
+    </update>
+    <delete id="deletePicture">
+        DELETE FROM picture
+        WHERE picture_id=#{pictureId}
+    </delete>
+</mapper>

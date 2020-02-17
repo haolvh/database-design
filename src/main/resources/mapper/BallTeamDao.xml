@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.dao.BallTeamDao">
+    <select id="queryBallTeam" resultType="com.example.demo.entity.BallTeam">
+        SELECT * FROM ballteam
+    </select>
+    <select id="queryBallTeamByName" resultType="com.example.demo.entity.BallTeam">
+        SELECT * FROM ballteam
+        WHERE team_name=#{ballTeamName}
+    </select>
+    <select id="queryAllBallTeam" resultType="com.example.demo.entity.BallTeam">
+        SELECT * FROM ballteam
+        WHERE team_name LIKE CONCAT('%',#{ballTeamName},'%')
+    </select>
+    <select id="queryBallTeamById" resultType="com.example.demo.entity.BallTeam">
+        SELECT * FROM ballteam
+        WHERE team_id=#{ballTeamId}
+    </select>
+    <insert id="insertBallTeam" useGeneratedKeys="true" keyProperty="teamId"
+            keyColumn="team_id" parameterType="com.example.demo.entity.BallTeam">
+        INSERT INTO ballteam(team_name, team_introduce)
+        VALUES (#{teamName},#{teamIntroduce})
+    </insert>
+    <delete id="deleteBallTeam">
+        DELETE FROM ballteam
+        WHERE team_id=#{teamId}
+    </delete>
+    <update id="updateBallTeam" parameterType="com.example.demo.entity.BallTeam">
+        UPDATE ballteam
+        SET team_name=#{teamName},team_introduce=#{teamIntroduce}
+        WHERE team_id=#{teamId}
+    </update>
+</mapper>

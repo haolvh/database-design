@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>信息体育部</title>
+	<meta name="keywords" content="华中农业大学,信息学院,本科生学生会,体育部"/>
+	<meta name="description" content="成员,球队,团建,活动等介绍"/>
+    <link rel="stylesheet" type="text/css" href="./css/base.css" />
+    <link rel="stylesheet" type="text/css" href="./css/index.css" />
+	<script src="js/jquery-1.9.1.js" type="text/javascript" charset="UTF-8"></script>
+	<script src="js/all.js" type="text/javascript" charset="UTF-8"></script>
+</head>
+<body background="img/background.jpg" >
+    <div class="box">
+	<!--导航栏-->
+        <header class="header">
+            <div class="header__wrap">
+                <div class="header__logo">信息体育部</div>
+                <nav class="header__nav">
+                    <a href="index.html" class="header__nav-item header__nav-item_status_active" onclick="brief()">简介</a>
+                    <a href="member.html" class="header__nav-item" onclick="member()">成员</a>
+                    <a href="team.html" class="header__nav-item">球队</a>
+                    <a href="tuanjian.html" class="header__nav-item">团建</a>
+                    <a href="activity.html" class="header__nav-item" onclick="activities()">活动</a>
+                    <a href="#" class="header__nav-item header__nav-item_custom_button" onclick="share(this)">加入我们</a>
+                </nav>
+            </div>
+        </header>
+		
+	<!--首页-->
+        <div class="logo" align="center" id="logo">
+			<img src="img/big_logo.JPG" width="400px" height="400px">
+        </div>		
+		<div class="introduction" id="introduction">
+			<p>欢迎来到信息体育部 ！</p>
+		</div>
+		
+	<!--加入我们：二维码-->
+		<div id="light_qq" class="white_content">
+		    <img src="img/qq.PNG" width="420px" height="300px" />  
+		</div>	
+			
+	<!--页脚-->
+		<div class="footer">
+			<p>体育、生活，就在信息体育部</p>
+			<p>&nbsp;<span>版权所有</span>&nbsp;&nbsp;<span>produced by xinxitiyubu</span></p>
+		</div>
+		
+	<!--二维码背景-->
+		<div id="fade" class="black_overlay" onclick="unshare()">
+	</div>
+</body>
+</html>

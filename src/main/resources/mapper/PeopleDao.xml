@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.dao.PeopleDao">
+    <select id="queryAllPeople" resultType="com.example.demo.entity.People">
+        SELECT * FROM people
+    </select>
+    <select id="queryPeopleByDId" resultType="com.example.demo.entity.People">
+        SELECT * FROM people
+        WHERE D_id=#{DId}
+    </select>
+    <select id="queryPeopleById" resultType="com.example.demo.entity.People">
+        SELECT * FROM people
+        WHERE people_id=#{peopleId}
+    </select>
+    <select id="queryPeopleByTeamId" resultType="com.example.demo.entity.People">
+        SELECT * FROM people
+        WHERE team_id=#{teamId}
+    </select>
+    <select id="queryDId" resultType="java.lang.Integer">
+        SELECT D_id FROM people
+    </select>
+    <select id="queryTeamId" resultType="java.lang.Integer">
+        SELECT team_id FROM people
+    </select>
+    <select id="queryPeopleIdByTeamId" resultType="java.lang.Integer">
+        SELECT * FROM people
+        WHERE team_id=#{teamId}
+    </select>
+    <select id="queryPeopleByTask" resultType="com.example.demo.entity.People">
+        SELECT * FROM people
+        WHERE team_id=#{teamId}
+    </select>
+    <select id="queryPeopleByName" resultType="com.example.demo.entity.People">
+        SELECT * FROM people
+        WHERE people_name=#{peopleName}
+    </select>
+    <insert id="insertPeople" useGeneratedKeys="true" keyProperty="peopleId"
+            keyColumn="people_id" parameterType="com.example.demo.entity.People">
+        INSERT INTO people(D_id, team_id, people_name, people_task, people_birthday, people_birthplace, people_introduce, people_qq)
+        VALUES (#{DId},#{teamId},#{peopleName},#{peopleTask},#{peopleBirthday},#{peopleBirthplace},#{peopleIntroduce},#{peopleQQ})
+    </insert>
+    <update id="updatePeople" parameterType="com.example.demo.entity.People">
+        UPDATE people
+        SET D_id=#{DId},team_id=#{teamId},people_name=#{peopleName},
+            people_task=#{peopleTask},people_birthday=#{peopleBirthday},people_birthplace=#{peopleBirthplace},
+            people_introduce=#{peopleIntroduce},people_qq=#{peopleQQ}
+        WHERE people_id=#{peopleId}
+    </update>
+    <delete id="deletePeople">
+        DELETE FROM people
+        WHERE people_id=#{peopleId}
+    </delete>
+</mapper>

@@ -1,0 +1,209 @@
+
+.header{
+	background-color: #f7f7f7;
+}
+.header__wrap{
+	width:1200px;
+	height: 80px;
+	margin: 0 auto;
+	position: relative;
+}
+.header__logo{
+	width: 150px;
+	height: 38px;
+	line-height: 38px;
+	font-size: 20px;
+	color: #07111b;
+	text-indent: 50px;
+	background: url('../img/logo.png') left center no-repeat;
+	background-size: 38px 38px;
+	position: absolute;
+	top: 50%;
+	margin-top: -19px;
+	left: 20px;
+}
+
+.header__nav{
+	position: absolute;
+	right: 20px;
+	height: 38px;
+	top: 50%;
+	margin-top: -19px;
+}
+.header__nav-item{
+	color: #292f35;
+	font-size: 14px;
+	
+	height: 38px;
+	line-height: 38px;
+	float: left;
+	position: relative;
+
+	width: 30px;
+	text-align: center;
+/*	margin: 0;*/
+	padding-left: 40px;
+}
+.header__nav-item:hover{
+	color: #f01400;
+}
+.header__nav-item_status_active{
+	color: #f01400;
+}
+.header__nav-item_custom_button{
+	background: #000;
+	color: #f4f4f5;
+	text-align: center;
+	width: 90px;
+	border-radius: 3px;
+
+	/**/
+	margin-left:40px;
+	padding: 0;
+}
+
+
+.logo{
+	position: relative;
+	top:50px;
+	margin-bottom: 100px;
+}
+
+.footer{	
+	height: 70px;	
+	width: 100%;	
+	background-color: black;	
+	line-height: 20px;
+	font-size: 12px;
+	color: #F7F7F7;
+	display: inline-block;
+	text-align: center;
+	vertical-align: middle;
+	position: relative;
+	bottom: 0;
+
+}
+
+.introduction{
+	font-size: 40px;
+	font-family: "Microsoft Yahei",微软雅黑;
+	text-align: center;
+}
+
+.black_overlay{
+    display: none; 
+    position: absolute;  
+    top: 0%;  
+    left: 0%;  
+    width: 100%;  
+    height: 100%;  
+    background-color: #ffffff;  
+    z-index:1001;  
+    -moz-opacity: 0.8;  
+    opacity:.80;  
+    filter: alpha(opacity=80);       
+}       
+.white_content {
+    display: none;  
+    position: fixed; 
+    top: 25%; 
+    left: 36.5%;             
+    z-index:9999; /* 数字的大小指明了div的相对层，数字大的在上层 */
+    overflow: auto;
+	width: 450px;
+	height: 330px;
+
+}
+
+.add{
+    color: #fff;
+    background-color: #FF5A44;
+    border-color: #FF5A44;
+    text-shadow: 0 -1px 0 rgba(0,0,0,0.12);
+    -webkit-box-shadow: 0 2px 0 rgba(0,0,0,0.045);
+    box-shadow: 0 2px 0 rgba(0,0,0,0.045);
+    line-height: 1.499;
+    position: relative;
+    display: inline-block;
+    font-weight: 400;
+    white-space: nowrap;
+    text-align: center;
+    background-image: none;
+    border: 1px solid transparent;
+    -webkit-box-shadow: 0 2px 0 rgba(0,0,0,0.015);
+    box-shadow: 0 2px 0 rgba(0,0,0,0.015);
+    cursor: pointer;
+    -webkit-transition: all .3s cubic-bezier(.645, .045, .355, 1);
+    transition: all .3s cubic-bezier(.645, .045, .355, 1);
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    height: 32px;
+    padding: 0 15px;
+    font-size: 14px;
+    border-radius: 4px;
+    color: rgba(0,0,0,0.65);
+    background-color: #fff;
+    border-color: #d9d9d9;
+}
+
+.member{
+	margin:5px;
+	border:1px solid #B5D6E6;
+	width:890px;
+	height:390px;
+}
+.member tr{
+	border-collapse:collapse;
+	font-size:12px;
+}
+
+.member tr td{
+	text-align: center;
+	font-family: "rockwell extra bold";
+	font-size: 18;
+}
+
+.left {
+    float: left;
+    height: 100%;
+}
+
+.right {
+    margin-left: 20px;
+}
+
+#teamList{
+	margin:5px;
+	border:1px solid #B5D6E6;
+
+}
+#teamList tr{
+	border-collapse:collapse;
+	font-size:12px;
+}
+#teamList tr td{
+	text-align: center;
+	font-family: "rockwell extra bold";
+	font-size: 18;
+}
+.teamleft{
+	float: left;
+	height: 100%;
+}
+.teamright{
+	margin-left: 20px;
+}
+#teamUpdatediv input[type=text]{
+	  border: 1.5px solid black;
+	  border-radius: 4px;
+	  margin-top: 5px;
+}
+#teamInsertdiv input[type=text]{
+	  border: 1.5px solid black;
+	  border-radius: 4px;
+	  margin-top: 5px;
+}

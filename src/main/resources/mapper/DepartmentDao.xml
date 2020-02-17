@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.dao.DepartmentDao">
+    <select id="queryDepartment" resultType="com.example.demo.entity.Department">
+        SELECT * from depatment
+    </select>
+    <select id="queryDepartmentByName" resultType="com.example.demo.entity.Department">
+        SELECT * FROM depatment
+        WHERE D_name=#{departmentName}
+    </select>
+    <insert id="insertDepartment" useGeneratedKeys="true" keyProperty="DId"
+            keyColumn="D_id" parameterType="com.example.demo.entity.Department">
+        INSERT INTO depatment(D_name)
+        VALUES (#{DName})
+    </insert>
+    <delete id="deleteDepartment">
+        DELETE FROM depatment
+        WHERE D_id=#{DId}
+    </delete>
+    <update id="updateDepartment" parameterType="com.example.demo.entity.Department">
+        UPDATE depatment
+        SET D_name=#{DName}
+        WHERE D_id=#{DId}
+    </update>
+</mapper>

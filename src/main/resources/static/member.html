@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>信息体育部</title>
+    <link rel="stylesheet" type="text/css" href="./css/base.css" />
+    <link rel="stylesheet" type="text/css" href="./css/index.css" />
+	<script src="js/jquery-1.9.1.js" type="text/javascript" charset="UTF-8"></script>
+	<script src="js/member.js" type="text/javascript" charset="UTF-8"></script>
+	<style type="text/css">
+		#member{
+			font-family: "微软雅黑";
+			font-size: 16;
+		}
+		#insertForm{
+			display: none;
+		}
+		
+		.text {
+			padding-right: 50px;
+		}
+	</style>
+	<script type="text/javascript">
+		function Insert(){
+			document.getElementById("insertForm").style.display = "block";
+			document.getElementById("membersINsert").style.display="none";
+		} 
+	</script>
+</head>
+<body background="img/background.jpg" onload="memberList()">
+    <div class="box">
+	<!--导航栏-->
+        <header class="header">
+            <div class="header__wrap">
+                <div class="header__logo">信息体育部</div>
+                <nav class="header__nav">
+                    <img src=""/>
+                    <a href="index.html" class="header__nav-item header__nav-item_status_active" onclick="brief()">简介</a>
+                    <a href="member.html" class="header__nav-item" onclick="member()">成员</a>
+                    <a href="team.html" class="header__nav-item">球队</a>
+                    <a href="tuanjian.html" class="header__nav-item">团建</a>
+                    <a href="activity.html" class="header__nav-item" onclick="activities()">活动</a>
+                    <a href="#" class="header__nav-item header__nav-item_custom_button" onclick="share(this)">加入我们</a>
+                </nav>
+            </div>
+        </header>
+		<div id="members" class="left">
+			<table id="member" class="member" align="center">
+				<tr height="100px">
+			        <th width="250px" id="name"></th>
+					<th width="250px" id="name">姓名</th>
+					<th width="250px" id="peopletask">职务</th>
+					<th width="250px" id="birthday">生日</th>
+					<th width="250px" id="birthplace">来自</th>
+					<th width="250px" id="introduce">介绍</th>
+					<th width="250px" id="qq">qq</th>
+					<th width="250px" id="action">操作</th>
+				</tr>	
+			</table>
+			<input type="button" style="width: 80px; height: 40px;background: url(img/frame.jpg);" value="添加成员" onclick="Insert()"/>
+		</div>
+		<div id="membersINsert" class="right" style="display:none ;">
+			<form action="http://localhost:8080/api/people/update" method="post" id="UpdateForm">
+				<form action="" method="post" id="img">
+					<span class="text">头像</span><input type="file" name="" id="imgId" value="修改头像" /><br>
+				</form>
+				<img src="" alt="没头像" id="img_up" width="10%"><br>
+				<input type="text" name="" id="id_up" value="" style="display: none;"/>
+				<span class="text">姓名</span><input type="text" name="name" id="name_up" value="" /><br />
+				<span class="text">职位</span><input type="text" name="" id="task_up" value="" /><br>
+				<span class="text">生日</span><input type="text" name="birthday" id="birthday_up" value="" /><br />
+				<span class="text">来自</span><input type="text" name="birthplace" id="birthplace_up" value="" /><br />
+				<span class="text">介绍</span><input type="text" name="introduce" id="introduce_up" value="" /><br />
+				<span class="text">QQ </span><input type="text" name="QQ" id="peopleQQ_up" value="" /><br />			
+				<input type="button" name="" id="" value="确认修改" style="width:120px" onclick="memberUpdate()"/>
+			</form>
+		</div>
+		
+
+		<form action="http://localhost:8080/api/people/insert" method="post" id="insertForm" >
+			<span class="text">头像</span><input type="file" name="" id="fileId" value="选择文件" /><br>
+			<span class="text">姓名</span><input type="text" name="name" id="name_is" value="" /><br />
+			<span class="text">职位</span><input type="text" name="" id="task_is" value="" /><br>
+			<span class="text">生日</span><input type="text" name="birthday" id="birthday_is" value="" /><br />
+			<span class="text">来自</span><input type="text" name="birthplace" id="birthplace_is" value="" /><br />
+			<span class="text">介绍</span><input type="text" name="introduce" id="introduce_is" value="" /><br />
+			<span class="text">QQ </span><input type="text" name="QQ" id="QQ_is" value="" /><br />			
+			<input type="button" name="" id="" value="确认添加" style="width: 120px;" onclick="memberInsert()"/>
+		</form>
+		<br>
+		<br>
+		<br>
+		
+		
+	<!--加入我们：二维码-->
+		<div id="light_qq" class="white_content">
+		    <img src="img/qq.PNG" width="420px" height="300px" />  
+		</div>	
+			
+	<!--页脚-->
+		<div class="footer">
+			<p>体育、生活，就在信息体育部</p>
+			<p>&nbsp;<span>版权所有</span>&nbsp;&nbsp;<span>produced by xinxitiyubu</span></p>
+		</div>
+		
+	<!--二维码背景-->
+		<div id="fade" class="black_overlay" onclick="unshare()">
+	</div>
+</body>
+</html>
