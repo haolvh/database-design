@@ -1,1 +1,1 @@
-# databese-design
+# database-design
